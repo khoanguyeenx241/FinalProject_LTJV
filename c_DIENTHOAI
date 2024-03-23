@@ -1,5 +1,7 @@
-// Upload 23/03/2024
-// Author KhoaVjp
+package Dodientu;
+
+//Upload 23/03/2024
+//Author KhoaVjp
 
 public class DIENTHOAI extends PRODUCT implements IPRODUCT{
 	private String Camera;

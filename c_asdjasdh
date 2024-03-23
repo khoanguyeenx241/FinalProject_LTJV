@@ -1,0 +1,53 @@
+
+public class LAPTOP extends PRODUCT implements IPRODUCT{
+	private String Main;
+	private String HardDisk;
+	private String Graphics;
+	private String CPU;
+	
+	//Constructor
+	public LAPTOP() {
+		
+	}
+	
+	public LAPTOP(String main, String hardDisk, String graphics, String cpu) {
+		super();
+		this.Main = main;
+		this.HardDisk = hardDisk;
+		this.Graphics = graphics;
+		this.CPU = cpu;
+	}
+	
+	//Getter Setter
+	public String getMain() {
+		return this.Main;
+	}
+	
+	public void setMain(String main) {
+		this.Main = main;
+	}
+	
+	public String getHardDisk() {
+		return this.HardDisk;
+	}
+	
+	public void setHardDisk(String hardDisk) {
+		this.HardDisk = hardDisk;
+	}
+	
+	public String getGraphics() {
+		return this.Graphics;
+	}
+	
+	public void setGraphics(String graphics) {
+		this.Graphics = graphics;
+	}
+	
+	public String getCPU() {
+		return this.CPU;
+	}
+	
+	public void setCPU(String cpu) {
+		this.CPU = cpu;
+	}
+}

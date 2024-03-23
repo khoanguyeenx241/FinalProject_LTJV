@@ -1,12 +1,74 @@
-// Upload 23/03/2024
+//update by Tuan
+//23/03/2024
+import java.util.ArrayList;
+import java.util.Scanner;
 
-public class MainProduct {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		PRODUCT pt = new PRODUCT();
-		pt.Nhap();
-		pt.Xuat();
+public class ListSanPham {
+	ArrayList<PRODUCT>listPRODUCT = new ArrayList<>();
+	Scanner sc = new Scanner(System.in);
+	public void Excution() {
+		boolean Flag = true;
+		int Luachon;
+		while(Flag) {
+			Menu();
+			System.out.println("\t\t-------NHAP LUA CHON CUA BAN-------");
+			Luachon = Integer.parseInt(sc.nextLine());
+			switch (Luachon) {
+			case 1:
+				Nhap(Luachon);
+				break;
+			case 2:
+				Xuat(Luachon);
+				break;
+			case 3:
+				LietKeIOS();
+				break;
+			case 4:
+				LietKeAdr();
+				break;
+			case 5:
+				SapxepTangdan();
+				break;
+			case 6:
+				Sapxepgiamdan();
+				break;
+			case 7:
+				Tinhtong();
+				break;
+			case 8:
+				ThemSanPham();
+				break;
+			case 9:
+				XoaSanPham();
+				break;
+			case 10:
+				CapnhatDanhSach();
+				break;
+			case 0:
+				System.out.println("");
+				flag = false;
+				break;
+			default:
+				break;
+			}
+			}
+		}
 	}
-
+	private void Menu() {
+		// TODO Auto-generated method stub
+		System.out.println("\t\t-------MENU-------");
+		System.out.println("\t 1.\t Nhap Thong Tin Cho San Pham");
+		System.out.println("\t 2.\t Xuat Thong Tin San Pham");
+		System.out.println("\t 3.\t Liet Ke Nhung San Pham Co He Dieu Hanh IOS");
+		System.out.println("\t 4.\t Liet Ke Nhung San Pham Co He Dieu Hanh ANDROI");
+		System.out.println("\t 5.\t Sap Xep San Pham Tang Dan Dua Tren Gia Tien");
+		System.out.println("\t 6.\t Sap Xep San Pham Giam Dan Dua Tren So Luong");
+		System.out.println("\t 7.\t Tinh Tong Thanh Tien Cua San Pham");
+		System.out.println("\t 8.\t Them Mot San ham Vao Danh Sach");
+		System.out.println("\t 9.\t Xoa Mot San Pham Trong Danh Sach");
+		System.out.println("\t 10.\t Cap Nhat Danh Sach San Pham");
+		System.out.println("\t 0.\t Dong Menu");
+		
+		
+	}
 }

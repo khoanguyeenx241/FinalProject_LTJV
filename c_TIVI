@@ -1,0 +1,58 @@
+//upload 23/03/2023
+public class TIVI extends PRODUCT implements IPRODUCT {
+	private String LoaiTV;
+	private String Duongtruyen;
+	private boolean Voicecontrol;
+	//Contructor Khong Tham So
+	public TIVI() {
+		super();
+	}
+	//Contructor Co Tham So
+	public TIVI(String loaiTV, String duongtruyen, boolean voicecontrol) {
+		super();
+		this.LoaiTV = loaiTV;
+		this.Duongtruyen = duongtruyen;
+		this.Voicecontrol = voicecontrol;
+	}
+	//Getter va Setter
+	public String getLoaiTV() {
+		return LoaiTV;
+	}
+	public void setLoaiTV(String loaiTV) {
+		this.LoaiTV = loaiTV;
+	}
+	public String getDuongtruyen() {
+		return Duongtruyen;
+	}
+	public void setDuongtruyen(String duongtruyen) {
+		this.Duongtruyen = duongtruyen;
+	}
+	public boolean getVoicecontrol() {
+		return Voicecontrol;
+	}
+	public void setVoicecontrol(boolean voicecontrol) {
+		this.Voicecontrol = voicecontrol;
+	}
+	public void Nhap() {
+		System.out.println("\t\t-------NHAP THONG TIN TIVI-------");
+		super.Nhap();
+		System.out.println("Nhap Loai TiVi(TiVi Man Hinh Phang-Tivi Man Hinh Cong - Tivi Man Hinh Mong: )");
+		this.LoaiTV= sc.nextLine();
+		System.out.println("Nhap Duong Truyen Ban Dang Dung: ");
+		this.LoaiTV = sc.nextLine();
+		System.out.println("TiVi Co Dieu Khien Bang Giong Noi Hay Khong (True or False)");
+		this.Voicecontrol = Boolean.parseBoolean(sc.nextLine());
+	}
+	public void HienThiVoice() {
+		if(Voicecontrol)
+			System.out.println("Co");
+		else
+			System.out.println("Khong");
+	}
+	public void Xuat() {
+		System.out.println("Loai TiVi: "+this.LoaiTV);
+		System.out.println("Duong Truyen: "+this.Duongtruyen);
+		System.out.println("Dieu Khien Bang Giong Noi: ");
+		HienThiVoice();
+	}
+}

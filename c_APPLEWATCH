@@ -1,4 +1,8 @@
-//Uploat 23/03/2024
+import java.util.Date;
+
+// Uploaded 23/03/2024
+// Update By KhoaVjp 4PM
+
 public class APPLEWATCH extends PRODUCT implements IPRODUCT {
 	private String ChatLieuDay;
 	private String ChatLieuMatKinh;
@@ -7,7 +11,12 @@ public class APPLEWATCH extends PRODUCT implements IPRODUCT {
 	public APPLEWATCH() {
 		
 	}
-	public APPLEWATCH(String Chatlieuday,String Chatlieumatkinh, String Chatlieuvien, String Tinhnang ) {
+	
+	public APPLEWATCH(String maSP, String tenSP, Date ngaySx, double gia, int soLuong, String hangSx, double trongLuong,
+			double sizeScreer, int tanSoQuet, String doPhanGiai, String heDieuHanh, String Chatlieuday,String Chatlieumatkinh,
+			String Chatlieuvien, String Tinhnang) {
+		super(maSP, tenSP, ngaySx, gia, soLuong, hangSx, trongLuong, sizeScreer, tanSoQuet, doPhanGiai, heDieuHanh);
+		// TODO Auto-generated constructor stub
 		this.ChatLieuDay = Chatlieuday;
 		this.ChatLieuMatKinh = Chatlieumatkinh;
 		this.ChatLieuVien = Chatlieuvien;
@@ -41,7 +50,7 @@ public class APPLEWATCH extends PRODUCT implements IPRODUCT {
 		System.out.println("\t\t-------NHAP THONG TIN CUA SAN PHAM APPLE WATCH-------");
 		super.Nhap();
 		System.out.println(" Nhap Chat Lieu Day: ");
-		this.ChatLieuDay = sc.nexLine();
+		this.ChatLieuDay = sc.nextLine();
 		System.out.println(" Nhap Chat Lieu Mat Kinh: ");
 		this.ChatLieuMatKinh = sc.nextLine();
 		System.out.println(" Nhap Chat Lieu Vien: ");
@@ -56,5 +65,23 @@ public class APPLEWATCH extends PRODUCT implements IPRODUCT {
 		System.out.println("Chat Lieu Mat Kinh: "+this.ChatLieuMatKinh);
 		System.out.println("Chat Lieu Vien :"+this.ChatLieuVien);
 		System.out.println("Tinh Nang: "+this.Tinhnang);
+		System.out.println("Thue: "+Thue());
+		System.out.println("Tri gia: "+TriGia());
+		System.out.println("Thanh tien: "+ThanhTien());
+	}
+	@Override
+	public double Thue() {
+		// TODO Auto-generated method stub
+		return this.TriGia() * 0.1;
+	}
+	@Override
+	public double TriGia() {
+		// TODO Auto-generated method stub
+		return this.getGia() * this.getSoLuong();
+	}
+	@Override
+	public double ThanhTien() {
+		// TODO Auto-generated method stub
+		return this.TriGia() * this.ThanhTien();
 	}
 }

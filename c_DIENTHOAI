@@ -1,4 +1,4 @@
-
+// Upload 23/03/2024
 public class DIENTHOAI extends PRODUCT implements IPRODUCT{
 	private String Camera;
 	private String DungLuong;

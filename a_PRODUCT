@@ -1,0 +1,177 @@
+// Upload 23/03/2024
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+
+public  class PRODUCT {
+    private String MaSP;
+    private String TenSP;
+    private Date NgaySx;
+    private double Gia;
+    private int SoLuong;
+    private String HangSx;
+    private double TrongLuong;
+    
+    private double SizeScreen;
+    private int TanSoQuet;
+    private String DoPhanGiai;
+    private String HeDieuHanh;
+    Scanner sc = new Scanner(System.in);
+    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+    public PRODUCT() {
+        super();
+    }
+
+    public PRODUCT(String maSP, String tenSP, Date ngaySx, double gia, int soLuong, String hangSx,
+            double trongLuong, double sizeScreer, int tanSoQuet, String doPhanGiai,
+            String heDieuHanh) {
+        super();
+        this.MaSP = maSP;
+        this.TenSP = tenSP;
+        this.NgaySx = ngaySx;
+        this.Gia = gia;
+        this.SoLuong = soLuong;
+        this.HangSx = hangSx;
+        this.TrongLuong = trongLuong;
+        this.SizeScreen = sizeScreer;
+        this.TanSoQuet = tanSoQuet;
+        this.DoPhanGiai = doPhanGiai;
+        this.HeDieuHanh = heDieuHanh;
+    }
+
+    public String getMaSP() {
+        return this.MaSP;
+    }
+
+    public void setMaSP(String maSP) {
+        this.MaSP = maSP;
+    }
+
+    public String getTenSP() {
+        return this.TenSP;
+    }
+
+    public void setTenSP(String tenSP) {
+        this.TenSP = tenSP;
+    }
+
+    public Date getNgaySx() {
+        return this.NgaySx;
+    }
+
+    public void setNgaySx(Date ngaySx) {
+        this.NgaySx = ngaySx;
+    }
+
+    public double getGia() {
+        return this.Gia;
+    }
+
+    public void setGia(double gia) {
+        this.Gia = gia;
+    }
+
+    public int getSoLuong() {
+        return this.SoLuong;
+    }
+
+    public void setSoLuong(int soLuong) {
+        this.SoLuong = soLuong;
+    }
+
+    public String getHangSx() {
+        return this.HangSx;
+    }
+
+    public void setHangSx(String hangSx) {
+        this.HangSx = hangSx;
+    }
+
+    public double getTrongLuong() {
+        return this.TrongLuong;
+    }
+
+    public void setTrongLuong(double trongLuong) {
+        this.TrongLuong = trongLuong;
+    }
+    public double getSizeScreer() {
+        return this.SizeScreen;
+    }
+
+    public void setSizeScreer(double sizeScreer) {
+        this.SizeScreen = sizeScreer;
+    }
+
+    public int getTanSoQuet() {
+        return this.TanSoQuet;
+    }
+
+    public void setTanSoQuet(int tanSoQuet) {
+        this.TanSoQuet = tanSoQuet;
+    }
+
+    public String getDoPhanGiai() {
+        return this.DoPhanGiai;
+    }
+
+    public void setDoPhanGiai(String doPhanGiai) {
+        this.DoPhanGiai = doPhanGiai;
+    }
+
+    public String getHeDieuHanh() {
+        return this.HeDieuHanh;
+    }
+
+    public void setHeDieuHanh(String heDieuHanh) {
+        this.HeDieuHanh = heDieuHanh;
+    }
+    public void Nhap() {
+    	System.out.println("Nhap Ma San Pham:  ");
+    	this.MaSP = sc.nextLine();
+    	System.out.println("Nhap Ten San Pham: ");
+    	this.TenSP = sc.nextLine();
+    	System.out.println("Nhap Ngay San Xuat (Theo Dinh Dang dd-mm-yy): ");
+        String ngaySxString = sc.nextLine();
+        
+        try {
+            this.NgaySx = (Date) dateFormat.parse(ngaySxString);
+        } catch (ParseException e) {
+        	e.printStackTrace();
+            System.out.println("Dinh dang ngay khong hop le. Vui long nhap lai.");
+        }
+        System.out.println("Nhap Gia Tien Cua San Pham: ");
+        this.Gia = Double.parseDouble(sc.nextLine());
+        System.out.println("Nhap So Luong: ");
+        this.SoLuong = Integer.parseInt(sc.nextLine());
+        System.out.println("Nhap Hang San Xuat: ");
+        this.HangSx = sc.nextLine();
+        System.out.println("Nhap Trong Luong Cua San Pham(gam): ");
+        this.TrongLuong = Double.parseDouble(sc.nextLine());
+        System.out.println("Nhap Kich Thuoc Man Hinh: ");
+        this.SizeScreen = Double.parseDouble(sc.nextLine());
+        System.out.println("Nhap Tan So Quet(Hz): ");
+        this.TanSoQuet = Integer.parseInt(sc.nextLine());
+        System.out.println("Nhap Do Phan Giai: ");
+        this.DoPhanGiai = sc.nextLine();
+        System.out.println("Nhap He Dieu Hanh(Androi,IOS): ");
+        this.HeDieuHanh = sc.nextLine();    
+    }
+    public void Xuat() {
+    	System.out.println("Ma San Pham: "+this.MaSP);
+    	System.out.println("Ten San Pham: "+this.TenSP);
+    	System.out.println("Ngay San Xuat: "+ dateFormat.format(this.NgaySx));
+    	System.out.println("Gia Tien San Pham: "+this.Gia);
+    	System.out.println("So Luong: "+this.SoLuong);
+    	System.out.println("Hang San Xuat: "+this.HangSx);
+    	System.out.println("Trong Luong Cua San Pham: "+this.TrongLuong);
+    	System.out.println("Kich Thuoc Man Hinh: "+this.SizeScreen);
+    	System.out.println("Ten So Quet(Hz): "+this.TanSoQuet);
+    	System.out.println("Do Phan Giai: "+this.DoPhanGiai);
+    	System.out.println("He Dieu Hanh: "+this.HeDieuHanh);
+    	
+    }
+    	
+    }
+

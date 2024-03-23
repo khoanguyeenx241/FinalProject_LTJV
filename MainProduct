@@ -1,0 +1,12 @@
+// Upload 23/03/2024
+
+public class MainProduct {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		PRODUCT pt = new PRODUCT();
+		pt.Nhap();
+		pt.Xuat();
+	}
+
+}

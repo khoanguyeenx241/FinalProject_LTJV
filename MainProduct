@@ -1,74 +1,386 @@
-//update by Tuan
-//23/03/2024
+update By TuanKhi 12:18PM
+package Dodientu;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
+
 public class ListSanPham {
-	ArrayList<PRODUCT>listPRODUCT = new ArrayList<>();
-	Scanner sc = new Scanner(System.in);
-	public void Excution() {
-		boolean Flag = true;
-		int Luachon;
-		while(Flag) {
-			Menu();
-			System.out.println("\t\t-------NHAP LUA CHON CUA BAN-------");
-			Luachon = Integer.parseInt(sc.nextLine());
-			switch (Luachon) {
-			case 1:
-				Nhap(Luachon);
-				break;
-			case 2:
-				Xuat(Luachon);
-				break;
-			case 3:
-				LietKeIOS();
-				break;
-			case 4:
-				LietKeAdr();
-				break;
-			case 5:
-				SapxepTangdan();
-				break;
-			case 6:
-				Sapxepgiamdan();
-				break;
-			case 7:
-				Tinhtong();
-				break;
-			case 8:
-				ThemSanPham();
-				break;
-			case 9:
-				XoaSanPham();
-				break;
-			case 10:
-				CapnhatDanhSach();
-				break;
-			case 0:
-				System.out.println("");
-				flag = false;
-				break;
-			default:
+    ArrayList<PRODUCT> listPRODUCT = new ArrayList<>();
+    Scanner sc = new Scanner(System.in);
+
+    public void Execution() {
+        boolean Flag = true;
+        int Luachon;
+        while (Flag) {
+            Menu();
+            System.out.println("\t\t-------NHAP LUA CHON CUA BAN-------");
+            Luachon = Integer.parseInt(sc.nextLine());
+            switch (Luachon) {
+                case 1:
+                    Nhap(Luachon);
+                    break;
+                case 2:
+                    Xuat(Luachon);
+                    break;
+                case 3:
+                    LietKeIOS();
+                    break;
+                case 4:
+                    LietKeAdr();
+                    break;
+                case 5:
+                    SapxepTangdan();
+                    break;
+                case 6:
+                    Sapxepgiamdan();
+                    break;
+                case 7:
+                    Tinhtong();
+                    break;
+                case 8:
+                    ThemSanPham(Luachon);
+                    break;
+                case 9:
+                    XoaSanPham(Luachon);
+                    break;
+                case 10:
+                    CapnhatDanhSach(Luachon);
+                    break;
+                case 0:
+                    System.out.println("");
+                    Flag = false;
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    private void CapnhatDanhSach(int Luachon) {
+        System.out.println("\t\t-------CAP NHAT DANH SACH SAN PHAM----");
+        System.out.println("Nhap Lua Chon Cua Ban: ");
+        System.out.println("\t 1.\t Cap Nhat Gia San Pham ");
+        System.out.println("\t 2.\t Cap Nhat So Luong San Pham");
+        System.out.println("\t 0.\t Tro Ve");
+        Luachon = Integer.parseInt(sc.nextLine());
+        switch (Luachon) {
+		case 1:
+			CapNhatGiaSanPham();
+			break;
+		case 2:
+			CapNhatSoLuongSanPham();
+			break;
+		case 0:
+		System.out.println("Tro ve Menu");
+		break;
+		default:
+			System.out.println("Lua Chon Khong Hop Le");
+			break;
+		}
+
+    }
+
+    private void CapNhatSoLuongSanPham() {
+		// TODO Auto-generated method stub
+		System.out.println("Nhap Ten San Pham Can Cap Nhat So Luong: ");
+		String TenSp = sc.nextLine();
+		boolean TImthay = false;
+		for (PRODUCT product : listPRODUCT) {
+			if(product.getTenSP().equalsIgnoreCase(TenSp)) {
+				System.out.println("Nhap So Luong Moi Cho San Pham: ");
+				int Slmoi = Integer.parseInt(sc.nextLine());
+				product.setSoLuong(Slmoi);
+				System.out.println("So Luong Da Duoc Cap Nhat");
+				TImthay = true;
 				break;
 			}
+			if(!TImthay) {
+				System.out.println("Khong Tim Thay San Pham Hop Le!");
 			}
 		}
 	}
-	private void Menu() {
+
+	private void CapNhatGiaSanPham() {
 		// TODO Auto-generated method stub
-		System.out.println("\t\t-------MENU-------");
-		System.out.println("\t 1.\t Nhap Thong Tin Cho San Pham");
-		System.out.println("\t 2.\t Xuat Thong Tin San Pham");
-		System.out.println("\t 3.\t Liet Ke Nhung San Pham Co He Dieu Hanh IOS");
-		System.out.println("\t 4.\t Liet Ke Nhung San Pham Co He Dieu Hanh ANDROI");
-		System.out.println("\t 5.\t Sap Xep San Pham Tang Dan Dua Tren Gia Tien");
-		System.out.println("\t 6.\t Sap Xep San Pham Giam Dan Dua Tren So Luong");
-		System.out.println("\t 7.\t Tinh Tong Thanh Tien Cua San Pham");
-		System.out.println("\t 8.\t Them Mot San ham Vao Danh Sach");
-		System.out.println("\t 9.\t Xoa Mot San Pham Trong Danh Sach");
-		System.out.println("\t 10.\t Cap Nhat Danh Sach San Pham");
-		System.out.println("\t 0.\t Dong Menu");
-		
-		
+		System.out.println("Nhap Ten San Pham Can Cap Nhat Gia: ");
+		String Tensp = sc.nextLine();
+		boolean TImthay = false;
+		for (PRODUCT product : listPRODUCT) {
+			if(product.getTenSP().equalsIgnoreCase(Tensp)) {
+				System.out.println("Nhap Gia Tien Moi Cho San Pham: ");
+				double Giamoi = Double.parseDouble(sc.nextLine());
+				product.setGia(Giamoi);
+				System.out.println("THEM THANH CONG!");
+				TImthay = true;
+				break;
+			}
+			if(!TImthay) {
+				System.out.println("Khong Tim Thay San Pham Hop Le");
+			}
+		}
 	}
+
+	private void XoaSanPham(int Luachon) {
+        // TODO Auto-generated method stub
+		System.out.println("\t\t-------XOA SAN PHAM-------");
+    	System.out.println("Nhap Loai San Pham Can Xoa");
+    	System.out.println("\t 1.\t Dien Thoai");
+    	System.out.println("\t 2.\t AppleWatch");
+    	System.out.println("\t 3.\t Tivi");
+    	System.out.println("\t 4.\t LapTop");
+    	System.out.println("\t 0.\t Tro Ve");
+    	Luachon = Integer.parseInt(sc.nextLine());
+    	PRODUCT pt = null;
+    	System.out.println("Nhap Ten Hoac Ma San Pham Can Xoa");
+    	String Tenmasp= sc.nextLine();
+    	boolean Timthay = false;
+    	for (int i = 0; i < listPRODUCT.size(); i++) {
+			if(listPRODUCT.get(i).getTenSP().equalsIgnoreCase(Tenmasp)||
+			listPRODUCT.get(i).getMaSP().equalsIgnoreCase(Tenmasp)) {
+				listPRODUCT.remove(i);
+				System.out.println("Xoa Thanh Cong");
+				Timthay = true;
+				break;
+				
+		}	
+		}
+    	if(!Timthay) {
+    		System.out.println("Khong Tim Thay Ten Hoac Ma San Pham Da Nhap Tron Danh Sach");
+    	}
+    	
+    	
+    }
+   
+    
+
+    private void ThemSanPham(int Luachon) {
+        // TODO Auto-generated method stub
+    	System.out.println("\t\t-------THEM SAN PHAM-------");
+    	System.out.println("Nhap Loai San Pham Can Them");
+    	System.out.println("\t 1.\t Dien Thoai");
+    	System.out.println("\t 2.\t AppleWatch");
+    	System.out.println("\t 3.\t Tivi");
+    	System.out.println("\t 4.\t LapTop");
+    	System.out.println("\t 0.\t Tro Ve");
+    	Luachon = Integer.parseInt(sc.nextLine());
+    	PRODUCT pt = null;
+    	switch (Luachon) {
+		case 1:
+			pt = new DIENTHOAI();
+			break;
+		case 2:
+			pt = new APPLEWATCH();
+			break;
+		case 3:
+			pt = new TIVI();
+			break;
+		case 4:
+			pt = new LAPTOP();
+			break;
+		case 0:
+			System.out.println("Tro Ve MeNu");
+		default:
+			System.out.println("Khong Hop Le!");
+			break;
+		}
+    	//Nhap thong tin cho san pham moi
+    	pt.Nhap();
+    	//them san pham vo danh sach
+    	listPRODUCT.add(pt);
+    	System.out.println("THEM THANH CONG!");
+    }
+   
+
+	private void Tinhtong() {
+        // TODO Auto-generated method stub
+    	double Tongthanhtien = 0; 
+    	for (PRODUCT product : listPRODUCT) {
+				Tongthanhtien += product.getGia()*product.getSoLuong()+0.1;
+		}
+    	System.out.println("Tong Thanh Tien Cua Tat Ca San Pham: "+Tongthanhtien);
+    }
+
+    private void Sapxepgiamdan() {
+        // TODO Auto-generated method stub
+    	for (int i = 0; i < listPRODUCT.size() - 1; i++) {
+            for (int j = i + 1; j < listPRODUCT.size(); j++) {
+                if (listPRODUCT.get(i).getSoLuong() < listPRODUCT.get(j).getSoLuong()) {
+                    // Hoan doi
+                    PRODUCT tmp = listPRODUCT.get(i);
+                    listPRODUCT.set(i, listPRODUCT.get(j));
+                    listPRODUCT.set(j, tmp);
+                }
+            }
+		System.out.println("\t\t-------Danh Sach San Pham Sau Khi Sap Xep Giam Dan-------");
+    	
+			}
+		for (PRODUCT product : listPRODUCT) {
+			product.Xuat();
+		}
+	
+		}
+
+    
+
+    private void SapxepTangdan() {
+        // TODO Auto-generated method stub
+    		for (int i = 0; i < listPRODUCT.size()-1; i++) {
+    			for (int j = i+1; j < listPRODUCT.size()-i-1; j++) {
+    				if(listPRODUCT.get(i).getGia()>listPRODUCT.get(j).getGia()) {
+    					//hoandoi
+    					PRODUCT tmp = listPRODUCT.get(i);
+    					listPRODUCT.set(i, listPRODUCT.get(j));
+    					listPRODUCT.set(j, tmp);
+			}
+		}
+    		System.out.println("\t\t-------Danh Sach San Pham Sau Khi Sap Xep Tang Dan-------");
+        	
+				}
+    		for (PRODUCT product : listPRODUCT) {
+    			product.Xuat();
+			}
+    	
+			}
+
+    
+    private void LietKeAdr() {
+        // TODO Auto-generated method stub
+    	for (PRODUCT product : listPRODUCT) {
+			if(product instanceof PRODUCT) {
+				String Hedieuhanh = product.getHeDieuHanh();
+					if(Hedieuhanh.equalsIgnoreCase("androi")) {
+						product.Xuat();
+				}
+			}
+		}
+    }
+
+    private void LietKeIOS() {
+        // TODO Auto-generated method stub
+    	for (PRODUCT product : listPRODUCT) {
+			if(product instanceof PRODUCT) {
+				String Hedieuhanh = product.getHeDieuHanh();
+					if(Hedieuhanh.equalsIgnoreCase("ios")) {
+						product.Xuat();
+				}
+			}
+		}
+    }
+
+    // METHOD XUAT DANH SACH
+    private void Xuat(int luachon) {
+        System.out.println("\t\t-------MOI BAN CHON SAN PHAM CAN XUAT THONG TIN------");
+        System.out.println("\t 1.\t Dien Thoai");
+        System.out.println("\t 2.\t AppleWatch");
+        System.out.println("\t 3.\t TiVi");
+        System.out.println("\t 4.\t LapTop");
+        System.out.print("Nhap lua chon cua ban: ");
+        luachon = Integer.parseInt(sc.nextLine());
+        if (luachon == 0) {
+            return; // Tro lai menu chinh
+        }
+
+        PRODUCT Pt = null;
+        switch (luachon) {
+            case 1:
+            	for (PRODUCT product : listPRODUCT) {
+    				if(product instanceof DIENTHOAI && luachon== 1) {
+    					product.Xuat();
+    				}
+            	}
+                break;
+            case 2:
+            	for (PRODUCT product : listPRODUCT) {
+            		if(product instanceof APPLEWATCH && luachon== 2) {
+            			product.Xuat();
+            		}
+            	}
+                break;
+            case 3:
+            	for (PRODUCT product : listPRODUCT) {
+            		if(product instanceof TIVI && luachon== 3) {
+            			product.Xuat();
+            		}
+            	}
+                break;
+            case 4:
+            	for (PRODUCT product : listPRODUCT) {
+            		if(product instanceof LAPTOP && luachon== 4) {
+            			product.Xuat();
+            	}
+            	}
+                break;
+            default:
+                System.out.println("Lua chon khong hop le.");
+                return; // tro ve menu
+        }
+    }
+       
+
+    
+
+
+    // TAO METHOD NHAP DE TIEN HANH DUA VAO MENU
+    private void Nhap(int luachon) {
+        System.out.println("\t\t-------MOI BAN CHON SAN PHAM DE NHAP THONG TIN-------");
+        System.out.println("\t 1.\t Dien Thoai");
+        System.out.println("\t 2.\t AppleWatch");
+        System.out.println("\t 3. \t TiVi");
+        System.out.println("\t 4. \t LapTop");
+        System.out.println("Dong Menu San Pham");
+        luachon = Integer.parseInt(sc.nextLine());
+        if (luachon == 0) {
+            return; // Tro lai menu chinh
+        }
+        PRODUCT pt = null;
+        switch (luachon) {
+            case 1:
+                if (luachon == 1) {
+                    pt = new DIENTHOAI();
+                }
+                break;
+            case 2:
+                if (luachon == 2) {
+                    pt = new APPLEWATCH();
+                }
+                break;
+            case 3:
+                if (luachon == 3) {
+                    pt = new TIVI();
+                }
+                break;
+            case 4:
+                if (luachon == 4) {
+                    pt = new LAPTOP();
+                }
+                break;
+            default:
+            	System.out.println("Lua chon khong hop le.");
+                return;//tro ve menu
+               
+        }
+        if (pt != null) {
+            pt.Nhap(); // Nhap thong tin san pham
+            listPRODUCT.add(pt);//them san pham vo list de truy xuat
+        }
+    }
+    
+
+    private void Menu() {
+        // TODO Auto-generated method stub
+        System.out.println("\t\t-------MENU-------");
+        System.out.println("\t 1.\t Nhap Thong Tin Cho San Pham");
+        System.out.println("\t 2.\t Xuat Thong Tin San Pham");
+        System.out.println("\t 3.\t Liet Ke Nhung San Pham Co He Dieu Hanh IOS");
+        System.out.println("\t 4.\t Liet Ke Nhung San Pham Co He Dieu Hanh ANDROI");
+        System.out.println("\t 5.\t Sap Xep San Pham Tang Dan Dua Tren Gia Tien");
+        System.out.println("\t 6.\t Sap Xep San Pham Giam Dan Dua Tren So Luong");
+        System.out.println("\t 7.\t Tinh Tong Thanh Tien Cua San Pham");
+        System.out.println("\t 8.\t Them Mot San ham Vao Danh Sach");
+        System.out.println("\t 9.\t Xoa Mot San Pham Trong Danh Sach");
+        System.out.println("\t 10.\t Cap Nhat Danh Sach San Pham");
+        System.out.println("\t 0.\t Dong Menu");
+    }
 }

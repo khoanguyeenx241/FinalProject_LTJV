@@ -1,4 +1,6 @@
 // Upload 23/03/2024
+// Author KhoaVjp
+
 public class DIENTHOAI extends PRODUCT implements IPRODUCT{
 	private String Camera;
 	private String DungLuong;
@@ -47,6 +49,52 @@ public class DIENTHOAI extends PRODUCT implements IPRODUCT{
 
 	public void setDungLuongPin(int dungLuongPin) {
 		this.DungLuongPin = dungLuongPin;
+	}
+	
+	
+
+	@Override
+	public void Nhap() {
+		super.Nhap();
+		System.out.println("Nhap camera dien thoai: ");
+		Camera = sc.nextLine();
+		System.out.println("Nhap dung luong dien thoai");
+		DungLuong = sc.nextLine();
+		System.out.println("Nhap dung luong ram dien thoai: ");
+		Ram = sc.nextLine();
+		System.out.println("Nhap dung luong pin: ");
+		DungLuongPin = Integer.parseInt(sc.nextLine());
+	}
+
+	@Override
+	public void Xuat() {
+		// TODO Auto-generated method stub
+		super.Xuat();
+		System.out.println("Camera dien thoai: "+Camera);
+		System.out.println("Dung luong dien thoai: "+DungLuong);
+		System.out.println("Dung luong Ram: "+Ram);
+		System.out.println("Dung luong pin: "+DungLuongPin);
+		System.out.println("Thue: "+Thue());
+		System.out.println("Tri gia: "+TriGia());
+		System.out.println("Thanh tien: "+ThanhTien());
+	}
+
+	@Override
+	public double Thue() {
+		// TODO Auto-generated method stub
+		return this.TriGia() * 0.1;
+	}
+
+	@Override
+	public double TriGia() {
+		// TODO Auto-generated method stub
+		return this.getGia() * this.getSoLuong();
+	}
+
+	@Override
+	public double ThanhTien() {
+		// TODO Auto-generated method stub
+		return this.TriGia() * this.Thue();
 	}
 	
 	

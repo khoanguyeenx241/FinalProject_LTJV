@@ -55,6 +55,7 @@ public class DIENTHOAI extends PRODUCT implements IPRODUCT{
 
 	@Override
 	public void Nhap() {
+		System.out.println("\t\t-------NHAP THONG TIN CUA SAN PHAM DIEN THOAI-------");
 		super.Nhap();
 		System.out.println("Nhap camera dien thoai: ");
 		Camera = sc.nextLine();
@@ -68,6 +69,7 @@ public class DIENTHOAI extends PRODUCT implements IPRODUCT{
 
 	@Override
 	public void Xuat() {
+		System.out.println("\t\t-------XUAT THONG TIN CUA SAN PHAM DIEN THOAI-------");
 		// TODO Auto-generated method stub
 		super.Xuat();
 		System.out.println("Camera dien thoai: "+Camera);

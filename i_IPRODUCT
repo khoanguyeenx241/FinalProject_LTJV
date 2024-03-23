@@ -1,0 +1,8 @@
+// Upload 23/03/2024
+
+public interface IPRODUCT {
+    public boolean LietKeSP();
+    public double Thue();
+    public double TriGia();
+    public double ThanhTien();
+}

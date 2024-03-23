@@ -1,63 +1,74 @@
-import java.util.Date;
+package Dodientu;
 
-// Uploaded 23/03/2024
-// Update By KhoaVjp 4PM
+
+
+//Uploaded 23/03/2024
+//Update By TuanKHi 12:20PM
 
 public class APPLEWATCH extends PRODUCT implements IPRODUCT {
 	private String ChatLieuDay;
 	private String ChatLieuMatKinh;
 	private String ChatLieuVien;
 	private String Tinhnang;
+	
 	public APPLEWATCH() {
 		
 	}
+
+	public APPLEWATCH(String chatLieuDay, String chatLieuMatKinh, String chatLieuVien, String tinhnang) {
+		super();
+		this.ChatLieuDay = chatLieuDay;
+		this.ChatLieuMatKinh = chatLieuMatKinh;
+		this.ChatLieuVien = chatLieuVien;
+		this.Tinhnang = tinhnang;
+	}
 	
-	public APPLEWATCH(String maSP, String tenSP, Date ngaySx, double gia, int soLuong, String hangSx, double trongLuong,
-			double sizeScreer, int tanSoQuet, String doPhanGiai, String heDieuHanh, String Chatlieuday,String Chatlieumatkinh,
-			String Chatlieuvien, String Tinhnang) {
-		super(maSP, tenSP, ngaySx, gia, soLuong, hangSx, trongLuong, sizeScreer, tanSoQuet, doPhanGiai, heDieuHanh);
-		// TODO Auto-generated constructor stub
-		this.ChatLieuDay = Chatlieuday;
-		this.ChatLieuMatKinh = Chatlieumatkinh;
-		this.ChatLieuVien = Chatlieuvien;
-		this.Tinhnang = Tinhnang;
-	}
+
 	public String getChatLieuDay() {
-		return ChatLieuDay;
+		return this.ChatLieuDay;
 	}
+
 	public void setChatLieuDay(String chatLieuDay) {
-		ChatLieuDay = chatLieuDay;
+		this.ChatLieuDay = chatLieuDay;
 	}
+
 	public String getChatLieuMatKinh() {
-		return ChatLieuMatKinh;
+		return this.ChatLieuMatKinh;
 	}
+
 	public void setChatLieuMatKinh(String chatLieuMatKinh) {
-		ChatLieuMatKinh = chatLieuMatKinh;
+		this.ChatLieuMatKinh = chatLieuMatKinh;
 	}
+
 	public String getChatLieuVien() {
-		return ChatLieuVien;
+		return this.ChatLieuVien;
 	}
+
 	public void setChatLieuVien(String chatLieuVien) {
-		ChatLieuVien = chatLieuVien;
+		this.ChatLieuVien = chatLieuVien;
 	}
+
 	public String getTinhnang() {
-		return Tinhnang;
+		return this.Tinhnang;
 	}
+
 	public void setTinhnang(String tinhnang) {
-		Tinhnang = tinhnang;
+		this.Tinhnang = tinhnang;
 	}
+
 	public void Nhap() {
 		System.out.println("\t\t-------NHAP THONG TIN CUA SAN PHAM APPLE WATCH-------");
 		super.Nhap();
-		System.out.println(" Nhap Chat Lieu Day: ");
+		System.out.println("Nhap Chat Lieu Day: ");
 		this.ChatLieuDay = sc.nextLine();
-		System.out.println(" Nhap Chat Lieu Mat Kinh: ");
+		System.out.println("Nhap Chat Lieu Mat Kinh: ");
 		this.ChatLieuMatKinh = sc.nextLine();
-		System.out.println(" Nhap Chat Lieu Vien: ");
+		System.out.println("Nhap Chat Lieu Vien: ");
 		this.ChatLieuVien = sc.nextLine();
-		System.out.println(" Nhap Tinh Nang Cua Dong Ho: ");
-		this.Tinhnang =sc.nextLine();
+		System.out.println("Nhap Tinh Nang Cua Dong Ho: ");
+		this.Tinhnang = sc.nextLine();
 	}
+	
 	public void Xuat() {
 		System.out.println("\t\t-------XUAT THONG TIN CUA APPLE WATCH-------");
 		super.Xuat();
@@ -65,23 +76,25 @@ public class APPLEWATCH extends PRODUCT implements IPRODUCT {
 		System.out.println("Chat Lieu Mat Kinh: "+this.ChatLieuMatKinh);
 		System.out.println("Chat Lieu Vien :"+this.ChatLieuVien);
 		System.out.println("Tinh Nang: "+this.Tinhnang);
-		System.out.println("Thue: "+Thue());
-		System.out.println("Tri gia: "+TriGia());
-		System.out.println("Thanh tien: "+ThanhTien());
+		System.out.println("Thue: "+this.Thue());
+		System.out.println("Tri gia: "+this.TriGia());
+		System.out.println("Thanh tien: "+this.ThanhTien());
 	}
 	@Override
 	public double Thue() {
 		// TODO Auto-generated method stub
-		return this.TriGia() * 0.1;
+		return this.TriGia()*0.1;
 	}
 	@Override
 	public double TriGia() {
 		// TODO Auto-generated method stub
-		return this.getGia() * this.getSoLuong();
+		return this.getGia()*this.getSoLuong();
 	}
 	@Override
 	public double ThanhTien() {
 		// TODO Auto-generated method stub
-		return this.TriGia() * this.ThanhTien();
+		return this.TriGia()+this.Thue();
 	}
+
+	
 }

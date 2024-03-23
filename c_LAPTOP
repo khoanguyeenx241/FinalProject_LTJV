@@ -1,7 +1,8 @@
 // Upload 23/03/2024
+//Update by Tuan 4;05
 public class LAPTOP extends PRODUCT implements IPRODUCT{
 	private String Main;
-	private String HardDisk;
+	private boolean HardDisk;
 	private String Graphics;
 	private String CPU;
 	
@@ -10,7 +11,7 @@ public class LAPTOP extends PRODUCT implements IPRODUCT{
 		
 	}
 	
-	public LAPTOP(String main, String hardDisk, String graphics, String cpu) {
+	public LAPTOP(String main, boolean hardDisk, String graphics, String cpu) {
 		super();
 		this.Main = main;
 		this.HardDisk = hardDisk;
@@ -27,11 +28,11 @@ public class LAPTOP extends PRODUCT implements IPRODUCT{
 		this.Main = main;
 	}
 	
-	public String getHardDisk() {
+	public boolean getHardDisk() {
 		return this.HardDisk;
 	}
 	
-	public void setHardDisk(String hardDisk) {
+	public void setHardDisk(boolean hardDisk) {
 		this.HardDisk = hardDisk;
 	}
 	
@@ -49,5 +50,54 @@ public class LAPTOP extends PRODUCT implements IPRODUCT{
 	
 	public void setCPU(String cpu) {
 		this.CPU = cpu;
+		
+	}
+	public void Nhap() {
+		System.out.println("\t\t-------NHAP THONG TIN LAPTOP-------");
+		super.Nhap();
+		System.out.println("Nhap Ten Main: ");
+		this.Main = sc.nextLine();
+		System.out.println("Nhap Loai O Cung(True: HDD-FALSE SSD): ");
+		this.HardDisk = Boolean.parseBoolean(sc.nextLine());
+		System.out.println("Nhap Ten CPU: ");
+		this.CPU = sc.nextLine();
+		System.out.println("Nhap Ten Card Do Hoa: ");
+		this.Graphics = sc.nextLine();
+	}
+	public void HienThiOCUNG() {
+		if(HardDisk)
+			System.out.println("HDD");
+		else
+			System.out.println("SSD");
+	}
+	public void Xuat() {
+		System.out.println("\t\t-------XUAT THONG TIN LAPTOP-------");
+		super.Xuat();
+		System.out.println("Ten Main: "+this.Main);
+		System.out.println("Loai O Cung: ");
+		HienThiOCUNG();
+		System.out.println("CPU: "+this.CPU);
+		System.out.println("Card Do Hoa: "+this.Graphics);
+		System.out.println("Thue: "+Thue());
+		System.out.println("Tri Gia: "+TriGia());
+		System.out.println("Thanh Tien "+ThanhTien());
+	}
+	
+	@Override
+	public double Thue() {
+		// TODO Auto-generated method stub
+		return this.TriGia()*0.1;
+	}
+
+	@Override
+	public double TriGia() {
+		// TODO Auto-generated method stub
+		return this.getGia()*this.getSoLuong();
+	}
+
+	@Override
+	public double ThanhTien() {
+		// TODO Auto-generated method stub
+		return this.TriGia() + this.Thue();
 	}
 }

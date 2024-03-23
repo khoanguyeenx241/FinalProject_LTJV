@@ -1,4 +1,5 @@
-//upload 23/03/2023
+//update 23/03/2023
+//udate by Tuan
 public class TIVI extends PRODUCT implements IPRODUCT {
 	private String LoaiTV;
 	private String Duongtruyen;
@@ -54,5 +55,21 @@ public class TIVI extends PRODUCT implements IPRODUCT {
 		System.out.println("Duong Truyen: "+this.Duongtruyen);
 		System.out.println("Dieu Khien Bang Giong Noi: ");
 		HienThiVoice();
+	}
+	
+	@Override
+	public double Thue() {
+		// TODO Auto-generated method stub
+		return this.TriGia()*0.1;
+	}
+	@Override
+	public double TriGia() {
+		// TODO Auto-generated method stub
+		return this.getGia()*this.getSoLuong();
+	}
+	@Override
+	public double ThanhTien() {
+		// TODO Auto-generated method stub
+		return this.TriGia() + this.Thue();
 	}
 }

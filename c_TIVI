@@ -1,5 +1,7 @@
+package Dodientu;
+
 //update 23/03/2023
-//udate by Tuan
+//udate by Tuan 0:22pm
 public class TIVI extends PRODUCT implements IPRODUCT {
 	private String LoaiTV;
 	private String Duongtruyen;

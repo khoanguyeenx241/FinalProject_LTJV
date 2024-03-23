@@ -1,5 +1,7 @@
-// Upload 23/03/2024
-//Update by Tuan 4;05
+package Dodientu;
+
+//Upload 24/03/2024
+//Update by Tuan0:22pm
 public class LAPTOP extends PRODUCT implements IPRODUCT{
 	private String Main;
 	private boolean HardDisk;
